@@ -15,7 +15,7 @@ This document describes beskar cloud repositories.
  * install ssh keys
  * miscellaneous (bash PS1, time syncing, PCI passthrough, ...)
 
-There is also reprecated repository [debops-lab](https://github.com/beskar-cloud/debops-lab) which we used before [Infra-config](https://github.com/beskar-cloud/infra-config) was born. [Debops-lab](https://github.com/beskar-cloud/debops-lab) uses [DebOps](https://github.com/debops/debops).
+There is also deprecated repository [debops-lab](https://github.com/beskar-cloud/debops-lab) which we used before [Infra-config](https://github.com/beskar-cloud/infra-config) was born. [Debops-lab](https://github.com/beskar-cloud/debops-lab) uses [DebOps](https://github.com/debops/debops).
 
 ## Kubernetes installation
 
