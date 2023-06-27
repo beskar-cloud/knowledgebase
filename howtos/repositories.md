@@ -15,8 +15,6 @@ This document describes beskar cloud repositories.
  * install ssh keys
  * miscellaneous (bash PS1, time syncing, PCI passthrough, ...)
 
-There is also deprecated repository [debops-lab](https://github.com/beskar-cloud/debops-lab) which we used before [Infra-config](https://github.com/beskar-cloud/infra-config) was born. [Debops-lab](https://github.com/beskar-cloud/debops-lab) uses [DebOps](https://github.com/debops/debops).
-
 ## Kubernetes installation
 
 Kubernetes cloud installation is done via [Kubespray](https://github.com/kubernetes-sigs/kubespray) repository and configuration is then kept declaratively in [kubernetes-deployments repository](https://github.com/beskar-cloud/kubernetes-deployments).
@@ -27,5 +25,5 @@ Multiple repositories are used to deploy whole OpenStack cloud deployed on top o
  * [openstack-helm](https://github.com/beskar-cloud/openstack-helm) is stabilized clone of [openstack/openstack-helm](https://github.com/openstack/openstack-helm).
  * [openstack-helm-infra](https://github.com/beskar-cloud/openstack-helm-infra) is stabilized clone of [openstack/openstack-helm-infra](https://github.com/openstack/openstack-helm-infra).
  * [custom-helm-charts](https://github.com/beskar-cloud/custom-helm-charts) comes with extra helm charts created to integrate various openstack-components.
- * [demo-lab](https://github.com/beskar-cloud/demo-lab) shows actual declarative OpenStack cloud deployment.
+ * [beskar-flux](https://github.com/beskar-cloud/beskar-flux) shows actual declarative OpenStack cloud deployment.
 
