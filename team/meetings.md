@@ -1,0 +1,3 @@
+# Beskar cloud community meetings
+
+There are regular bi-weekly meetings, [see working document for more details](https://docs.google.com/document/d/1XWV80e05FNJBcoyT9KNiCFCe7i5_18LtaPsNe_-FcK4).
