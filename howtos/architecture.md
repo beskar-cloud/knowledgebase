@@ -34,8 +34,8 @@ Learn more about [Beskar cloud repositories](repositories.md).
 Typical production Beskar cloud HW hypervisors specification:
  * 48+ cores
  * 512+ GB RAM
- * 2 NVME disks in raid for operating system (480+ GB)
- * 1-2 nvme disk for ephemeral data (used in OpenStack for VM with ephemeral disk)
+ * 2 NVME disks in RAID for operating system (480+ GB)
+ * 1-2 NVME disks for ephemeral data (used in OpenStack for VM with ephemeral disk)
  * multiple network interfaces (see [OpenStack](https://docs.openstack.org/nova/latest/install/overview.html#example-architecture) and [ceph](https://docs.ceph.com/en/latest/rados/configuration/network-config-ref/) recoomendations)
    * 2x (LACP) VM data VLAN, 10+Gbps
    * 2x (LACP) distributed storage client VLAN, 10+Gbps
@@ -46,10 +46,11 @@ Typical production Beskar cloud HW hypervisors specification:
    * dedicated ceph pools for Kubernetes persistent volumes
    * dedicated pools for Openstack components and user VMs (Glance images, Cinder volumes, Swift/Rados Gateway object storage, OpenStack VMs)
 
-Minimal testing cloud infrastructure could confidt of:
- * 3+2 virtual servers with 8 vCPUs, 16 GB RAM and 100GB disk
-   * enabled nested virtualization on 2 VM compute nodes
- * connected external distributed (ceph) storage
+Minimal testing cloud infrastructure could consist of:
+ * VMs with 8 vCPUs, 16 GB RAM and 100GB disk
+   * 1 or 3 virtual servers for controlplane
+   * at least 2 virtual servers for compute with enabled nested virtualization
+ * connected external distributed (ceph) storage or internal ceph cluster on additional disks on controlplane VMs
 
 ## Used technologies
  * Kubernetes (Kubespray)
