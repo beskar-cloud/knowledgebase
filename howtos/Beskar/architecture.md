@@ -46,6 +46,8 @@ Typical production Beskar cloud HW hypervisors specification:
    * dedicated ceph pools for Kubernetes persistent volumes
    * dedicated pools for Openstack components and user VMs (Glance images, Cinder volumes, Swift/Rados Gateway object storage, OpenStack VMs)
 
+## Minimal configuration
+
 Minimal testing cloud infrastructure could consist of:
  * VMs with 8 vCPUs, 16 GB RAM and 100GB disk
    * 1 or 3 virtual servers for controlplane
@@ -56,12 +58,12 @@ Minimal testing cloud infrastructure could consist of:
  * Kubernetes (Kubespray)
  * kube-vip
  * OpenStack
- * Prometheus monitoring (Prometheus, Pushgateway, various exporters, Alertmanager)
+ * Prometheus monitoring (Prometheus, Pushgateway, Alertmanager, various prometheus exporters)
  * Grafana
  * Grafana Loki
- * Traefik / Nginx proxy
- * Oauth2-proxy
- * Rook-ceph
+ * edge proxy (Traefik / Nginx)
+ * Identity servers (Oauth2-proxy to , OpenLDAP, ...),
+ * Distributed storage (Ceph, Rook-ceph)
  * Flux CD
  * Weave gitops server
-
+ * Ansible

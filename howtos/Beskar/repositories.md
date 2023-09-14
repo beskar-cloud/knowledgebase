@@ -26,4 +26,3 @@ Multiple repositories are used to deploy whole OpenStack cloud deployed on top o
  * [openstack-helm-infra](https://github.com/beskar-cloud/openstack-helm-infra) is stabilized clone of [openstack/openstack-helm-infra](https://github.com/openstack/openstack-helm-infra).
  * [custom-helm-charts](https://github.com/beskar-cloud/custom-helm-charts) comes with extra helm charts created to integrate various openstack-components.
  * [beskar-flux](https://github.com/beskar-cloud/beskar-flux) shows actual declarative OpenStack cloud deployment.
-
