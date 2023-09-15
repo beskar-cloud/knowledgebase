@@ -60,13 +60,13 @@ ansible-playbook -i ansible_hosts_ostrava play_single_os_patch.yml -t reboot -l 
 
 ## 3. Install kubernetes
 
-Once infra-config is executer your cluster nodes are prepared for kubernetes installation. We use [Kubespray](https://github.com/kubernetes-sigs/kubespray) to install kubernetes and [Kubernetes-deployments](https://github.com/beskar-cloud/kubernetes-deployments) repository for persisting kubernetes low-level configuration.
+Once infra-config is executed your cluster nodes are prepared for kubernetes installation. We use [Kubespray](https://github.com/kubernetes-sigs/kubespray) to install kubernetes and [Kubernetes-deployments](https://github.com/beskar-cloud/kubernetes-deployments) repository for persisting kubernetes low-level configuration.
 
 We recommend to use [one of the supported kubernetes releases](https://kubernetes.io/releases/) which has got at least 3 patch releases already.
 
 Kubernetes installation steps are following:
 * clone [Kubespray](https://github.com/kubernetes-sigs/kubespray)
-* generate and modity your own kubernetes inventory (you can inspire [here](https://github.com/beskar-cloud/kubernetes-deployments/tree/main/deployments/ceph-lab/configuration/kubespray) what is typically changed)
+* generate and modify your own kubernetes inventory (you can inspire [here](https://github.com/beskar-cloud/kubernetes-deployments/tree/main/deployments/ceph-lab/configuration/kubespray) what is typically changed)
 * install kubespray needed tools and initiate kubernetes deployment
 * store kubespray revision with inventory in [Kubernetes-deployments](https://github.com/beskar-cloud/kubernetes-deployments) repository for future
 * test kubernetes is up and running
@@ -191,7 +191,7 @@ infrastructure  downstream/1f4cba1      False           False   Applied revision
 
 ## 5. Install Openstack, monitoring and storage
 
-Once Flux CD is bootstrapped then all the cloud maintenance tasks from kubernetes up is done via cloud gitops repository [beskar-flux](https://github.com/beskar-cloud/beskar-flux) changes (PR/MR). OpenStack cloud isdescribed in [beskar-flux's](https://github.com/beskar-cloud/beskar-flux) [/apps](https://github.com/beskar-cloud/beskar-flux/tree/master/apps) directory.
+Once Flux CD is bootstrapped then all the cloud maintenance tasks from kubernetes up is done via cloud gitops repository [beskar-flux](https://github.com/beskar-cloud/beskar-flux) changes (PR/MR). OpenStack cloud is described in [beskar-flux's](https://github.com/beskar-cloud/beskar-flux) [/apps](https://github.com/beskar-cloud/beskar-flux/tree/master/apps) directory.
 
 
 [beskar-flux](https://github.com/beskar-cloud/beskar-flux) repository shows two different cloud environments:

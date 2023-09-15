@@ -10,8 +10,8 @@ Beskar cloud supports [all current OpenStack versions](https://releases.openstac
 
 ## How to upgrade openstack?
 
-OpenStack cloud version can be easily upgraded component by component by supplying next version of container images.
-OpenStack-helm helm charts are ading with automatic upgrades gracefully as part of bootstrapping including the database schema migrations.
+OpenStack cloud version can be easily upgraded component by component by supplying the next version of container images.
+OpenStack-helm helm charts are adding with automatic upgrades gracefully as part of bootstrapping including the database schema migrations.
 We encourage users to read OpenStack release notes, especially upgrade notes section ([example](https://docs.openstack.org/releasenotes/cinder/yoga.html#upgrade-notes)).
 
 We have so far tested following OpenStack versions:
