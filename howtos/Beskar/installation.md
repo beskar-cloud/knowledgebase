@@ -21,11 +21,11 @@ We typically mirror Beskar cloud repositories in downstream repository system fo
 Following tools are needed on node from where you are going to install the cloud:
 
 * kubectl compatible version, https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-* flux cli, https://fluxcd.io/flux/installation/#install-the-flux-cli
-* helm cli, https://helm.sh/docs/intro/install/
-* mozilla sops, https://github.com/mozilla/sops/releases
-* age, age.rpm / age.deb, https://github.com/FiloSottile/age/
-* ansible (take version specified in Kubespray)
+* Flux CD cli, https://fluxcd.io/flux/installation/#install-the-flux-cli
+* Helm cli, https://helm.sh/docs/intro/install/
+* Mozilla SOPS, https://github.com/mozilla/sops/releases
+* Age, https://github.com/FiloSottile/age/
+* Ansible (take version required by Kubespray)
 
 ## 1. Get your cloud servers
 
@@ -38,15 +38,22 @@ Ubuntu 22.04 LTS is recommended and the only tested operating system.
 Prepare infra-config inventory file based on [the example](https://github.com/beskar-cloud/infra-config/blob/main/ansible_hosts_democluster).
 Use infra-config repository to configure  your cloud server.
 
-### Operating system upgrade
+### Operating system reconfiguration (SSH, DNS, ...)
 
 ```sh
 cd .../infra-config
-# connection test
-ansible-playbook --check -i ansible_hosts_democluster play_single_os_patch.yml -t update -l cln-14.priv.cld.democluster.dev -e patch_enabled=true
-# 1st upgrade
-ansible-playbook -i ansible_hosts_democluster play_single_os_patch.yml -t update -l cln-14.priv.cld.democluster.dev -e patch_enabled=true
-# upgrade rest of the cluster
+# connection test to 1st cloud bode
+ansible-playbook --check -i ansible_hosts_democluster play_automated_common.yml -l cln-14.priv.cld.democluster.dev
+# reconfigure 1st cloud node
+ansible-playbook -i ansible_hosts_democluster play_automated_common.yml -l cln-14.priv.cld.democluster.dev
+# reconfigure rest of the cloud nodes
+ansible-playbook -i ansible_hosts_democluster play_automated_common.yml -l democluster_all
+```
+
+### Operating system (packages) upgrade
+
+```sh
+cd .../infra-config
 ansible-playbook -i ansible_hosts_democluster play_single_os_patch.yml -t update -l democluster_all -e patch_enabled=true
 ```
 
@@ -54,7 +61,6 @@ ansible-playbook -i ansible_hosts_democluster play_single_os_patch.yml -t update
 
 ```sh
 cd .../infra-config
-# reboot cluster (if needed)
 ansible-playbook -i ansible_hosts_ostrava play_single_os_patch.yml -t reboot -l democluster_all -e patch_enabled=true
 ```
 
@@ -206,9 +212,11 @@ Node labels can be added different ways (sorted by preference):
  * Kubespray cluster configuration
  * manual labelling
 
-### Example of manual labelling (5+1 nodes)
+### Example of manual labelling (5+1 nodes, testing lab )
+
+As an example find below manual labelling of testing lab cloud consisting of 5 (controlplane+storage) + 1 (compute) nodes on VMs with internal ceph cluster (`rook-ceph-operator`, `rook-ceph-role`, `topology.kubernetes.io/zone` and `topology.rook.io/rack` labels are related to rook-ceph storage technology).
+
 ```sh
-# label kubernetes nodes
 # common kubectl command (add --context=XYZ if needed)
 KUBECTL="kubectl"
 # control-plane labels
