@@ -55,7 +55,7 @@ Minimal testing cloud infrastructure could consist of:
  * connected external distributed (ceph) storage or internal ceph cluster on additional disks on controlplane VMs
 
 ## Quality assurance
-* Beskar cloud passed penetration tests conducted by CESNET Forensic Laboratory in September 2023.
+* Deployment of Beskar cloud brings matured cyber-security level as proved by excellent results of penetration tests run by CESNET Forensic Laboratory. 
 
 
 ![](./pictures/flab_logo-220.png#center)
