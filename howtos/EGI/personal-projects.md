@@ -11,13 +11,13 @@ Personal projects are periodically cleaned-up (resources stopped and removed).
 
 1. OIDC federated OpenStack IaaS cloud with [Keystone mapped plug-in](https://docs.openstack.org/keystone/latest/api/keystone.auth.plugins.mapped.html)
 2. Patched Keystone. There are basically two patch sets:
-   * a] extended functionality of Keystone mapped plugin
+   * a] [extended functionality of Keystone mapped plugin](https://gitlab.ics.muni.cz/cloud/g2/custom-images/-/tree/master/keystone)
    * b] Increased OpenStack Keystone project name length limitation
 3. Introspection [ESACO proxy](https://github.com/indigo-iam/esaco) linked with Keystone
 4. Use any way of managing OpenStack entities, especially projects, (service) users, roles and mappings preferably in CI/CD pipeline. See [cloud-entities example](https://github.com/beskar-cloud/cloud-entities).
 5. (Optional) Additional ansible playbooks running in CI/CD in order to get following features:
-   * OpenStack quota propagation to personal projects
-   * OpenStack personal project life-cycle management
+   * OpenStack [quota propagation to personal projects](https://github.com/beskar-cloud/cloud-entities/blob/main/ci/ansible/nested-quota-propagation.yml)
+   * OpenStack [personal project life-cycle management](https://github.com/beskar-cloud/cloud-entities/blob/main/ci/ansible/children-project-cleanup.yml)
    * EGI appliances propagation
 
 All personal projects are created under the defined parent project (using hierarchical manner of OpenStack Keystone projects).
@@ -38,8 +38,8 @@ All personal projects are created under the defined parent project (using hierar
 This is ongoing task:
  * 2a] patch set has [issue](https://bugs.launchpad.net/keystone/+bug/2047641) and not yet accepted [PR](https://review.opendev.org/c/openstack/keystone/+/904397).
  * 2b] patch set is DB increment and has [issue](https://bugs.launchpad.net/keystone/+bug/2069960) only atm.
- * 2b] keystone pull-request is ongoing.
-  * 2b] How to apply:
+ * 2b] keystone [pull-request is ongoing](https://review.opendev.org/c/openstack/keystone/+/930182).
+  * 2b] How to apply on existing cloud:
 
 ```sql
 -- we are touching keystone DB
@@ -116,6 +116,5 @@ The questions to be clarified:
 ### As a manager of personal projects, I'm having troubles to switch between them as Horizon shows first 30 only.
 
 Reconfigure OpenStack Horizon's local_settings to ['DROPDOWN_MAX_ITEMS=300'](https://docs.openstack.org/horizon/latest/configuration/settings.html#dropdown-max-items).
-
 
 
