@@ -1,0 +1,40 @@
+Dobrý den,
+ 
+migrace Vašeho projektu "{{ project_name }}" byla úspěšně dokončena {{ migration_date }}.
+Počet zmigrovaných virtuálních strojů z původního cloudu [1] do nové generace OpenStackového cloudu [2] je {{ vm_count }}.
+ 
+Více o motivaci pro migraci se lze dočíst v [3].
+ 
+Přenesené instance a jejich floating IP adresy:
+{%- for server in servers -%}
+{% if server.g1_id %}
+- {% if server.g1_name %}{{ server.g1_name }}{% else %}{{ server.g1_id }}{% endif %}{% if server.g1_fip %} ({{ server.g1_fip }}){% endif %} -> {% if server.g2_name %}{{ server.g2_name }}{% else %}{{ server.g2_id }}{% endif %}{% if server.g2_fip %} ({{ server.g2_fip }}){% endif %}
+{%- endif -%}
+{% endfor %}
+ 
+K novému projektu se dostanete po přihlášení do Brno GEN2 [4].
+ 
+Původní projekt je stále dostupný v Brno GEN1 [5].
+ 
+ 
+Rád bych Vás požádal o potvrzení následujícího:
+- Do nové generace jste schopen se přihlásit [4] a vidíte Váš projekt "{{ project_name }}".
+- Zmigrované stroje plní funkci, k níž je potřebujete.
+- Prosím o potvrzení, že mohu původní stroje zastavit, a posléze po cca 1-2 měsících smazat.
+- Prosím o potvrzení, že Váš projekt má stále expiraci {{ project_expiration }}.
+- Prosím o potvrzení, že jste jediná kontaktní osoba pro projekt. Případně uveďte kdo další.
+ 
+ 
+Děkuji za Váš čas.
+ 
+S pozdravem
+{{ signature }}
+ 
+e-INFRA CZ / MetaCentrum OpenStack cloud tým
+cloud@metacentrum.cz
+ 
+[1] https://cloud.muni.cz/
+[2] https://brno.openstack.cloud.e-infra.cz
+[3] https://docs.e-infra.cz/compute/openstack/migration-to-g2-openstack-cloud
+[4] https://horizon.brno.openstack.cloud.e-infra.cz
+[5] https://dashboard.cloud.muni.cz

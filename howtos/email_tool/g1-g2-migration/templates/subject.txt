@@ -1,0 +1,1 @@
+e-INFRA CZ / MetaCentrum OpenStack cloud - migrace do nového cloudového prostředí - {{ project_name }}
