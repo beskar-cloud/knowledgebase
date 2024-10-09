@@ -1,0 +1,41 @@
+Dobrý den,
+ 
+v průběhu roku 2024 probíhá migrace vybraných projektů běžících v e-INFRA CZ / MetaCentrum OpenStack cloudu Brno G1 [1] do nového prostředí Brno G2 [2].
+ 
+Více o motivaci pro migraci se lze dočíst v [3].
+ 
+ 
+Tato migrace se dotkne projektu, jehož jste vlastníkem: "{{ project_name }}".
+ 
+Plánovaný termín migrace projektu: {{ migration_date }}
+ 
+Dopad migrace:
+- Nedostupnost projektu 10-120 minut, v závislosti na množství migrovaných virtuálních strojů. Stroje v G1 budou během migrace postupně vypínány, kopírovány do G2 a posléze dojde k jejich zapnutí v G1 i G2.
+- Zmigrovaným virtuálním strojům v G2 budou přiděleny nové veřejné IP adresy, odlišné od původních adres v G1. Pokud máte pro stroje ve starém projektu vytvořené DNS záznamy, bude potřeba je po dokončení migrace upravit. Viz též [4].
+ 
+Co bude zmigrováno:
+- Všechny aktivní virtuální stroje a k nim připojené disky.
+- Síťování: network, subnet, router.
+- Security groups.
+ 
+Co nebude zmigrováno:
+- Neaktivní virtuální stroje a nepřipojené disky. Pokud si některé, či všechny z nich přejete zmigrovat, uveďte nám je prosím v odpovědi na tuto zprávu.
+ 
+Co od Vás potřebujeme:
+- Odpovězte prosím na tuto zprávu, a to nejpozději do {{ migration_prep_deadline }}. Pokud od Vás nedostaneme odpověď do tohoto termínu, projekt nebude zmigrován.
+- V odpovědi potvrďte termín migrace, příp. navrhněte jiný termín.
+- Dále v odpovědi uveďte, zda chcete migrovat i neaktivní stroje či nepřipojené disky, příp. zda máte nějaké jiné požadavky na průběh migrace.
+- Pokud se v souvislosti s projektem "{{ project_name }}" máme obracet na jinou osobu, napište nám její kontaktní údaje (e-mail).
+- Pokud projekt nechcete migrovat, dejte nám prosím vědět, jak s ním máme dále naložit (smazat, vypnout a zachovat data, ponechat v běhu do konkrétního data apod.).
+ 
+ 
+Předem děkujeme za Vaši součinnost.
+ 
+ 
+e-INFRA CZ / MetaCentrum OpenStack cloud tým
+cloud@metacentrum.cz
+ 
+[1] https://cloud.metacentrum.cz/
+[2] https://brno.openstack.cloud.e-infra.cz/
+[3] https://docs.e-infra.cz/compute/openstack/migration-to-g2-openstack-cloud/
+[4] https://docs.e-infra.cz/compute/openstack/migration-to-g2-openstack-cloud/#may-i-get-the-same-ip-address-for-migrated-infrastructure

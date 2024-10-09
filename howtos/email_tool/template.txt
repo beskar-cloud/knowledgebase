@@ -1,0 +1,4 @@
+Hello {{ name }},
+
+This is sample email template.
+This is your project in cloud {{ project_name }}.
